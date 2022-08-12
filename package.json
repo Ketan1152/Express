@@ -1,0 +1,22 @@
+{
+  "name": "express-tutorial",
+  "version": "1.0.0",
+  "description": "This is the Express Tutorial.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ketan1152/Express.git"
+  },
+  "author": "Ketan Ram Chandani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ketan1152/Express/issues"
+  },
+  "homepage": "https://github.com/Ketan1152/Express#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
