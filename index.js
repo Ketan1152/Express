@@ -5,20 +5,8 @@ const app = express();
 const port = 1200;
 
 // Middleware
-app.use(express.static(path.join(__dirname, 'templates')));
-
-app.get('/',(req,res)=>{
-    // res.send(`Hello World!`);
-    res.json({"name":"Ketan"});
-});
-
-app.get('/about',(req,res)=>{
-    res.sendFile(path.join(__dirname,'templates/index.html'));
-})
-
-app.get('/about/:name',(req,res)=>{
-    res.send('Hello '+req.params.name);
-})
+// app.use(express.static(path.join(__dirname, 'templates')));
+app.use('/',require('./routes/blog'));
 
 app.listen(port, ()=>{
     console.log(`Server started at http://localhost:${port}/ `);
