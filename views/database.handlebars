@@ -1,0 +1,16 @@
+<table class="table" style="border: 2px solid black;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Databases</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each ls}}
+    <tr>
+      <td><a href="/databases/{{this.Database}}">{{this.Database}}</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<script>
+</script>

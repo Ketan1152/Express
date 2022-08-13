@@ -37,11 +37,23 @@ const getrcds = (code) =>{
     });
 }
 
+function swdbs(code){
+    con.query('SHOW DATABASES;',(err,result)=>{
+        if (err){
+            return console.error('error: ' + err.message);
+        }
+        else{
+            code(result);
+        }
+    });
+}
+
 module.exports = {
     con: con,
     insrcd: insrcd,
     showrcd: showrcd,
     delrcd: delrcd,
     updrcd: updrcd,
-    getrcds: getrcds
+    getrcds: getrcds,
+    swdbs: swdbs
 };
