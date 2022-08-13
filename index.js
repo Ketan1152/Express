@@ -9,7 +9,8 @@ var con = mysql.createConnection({
     host: "localhost",
     user: "root",
     port: 3306,
-    password: "password"
+    password: "password",
+    database: "ketan"
 });
 
 con.connect(function (err) {
@@ -17,10 +18,10 @@ con.connect(function (err) {
         return console.error('error: ' + err.message);
     }
     console.log("Connected!");
+    insrcd("Ketan Ram Chandani");
 });
 
 function insrcd(name) {
-    con.query('USE ketan;');
     con.query(`INSERT INTO ketantable(Name) VALUES ("${name}");`, function (err, result) {
         if (err) {
             return console.error('error: ' + err.message);
@@ -30,7 +31,7 @@ function insrcd(name) {
         if (result[0].ID != 1) {
             con.query('ALTER TABLE ketantable AUTO_INCREMENT = 1;')
         }
-        console.log("Result:" + JSON.stringify(result));
+        console.log("Result:- \n" + JSON.stringify(result));
     });
 }
 
