@@ -1,0 +1,11 @@
+{{#each obj}}
+<form action="/about" method="post">
+    <div class="form-group">
+        <label for="prevname">Previous Name</label>
+        <input type="text" class="form-control" id="prevname" name="prevname" value="{{this.Name}}" readonly>
+        <label for="name">Enter Your New Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{this.Name}}" placeholder="Enter Your Name">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+{{/each}}

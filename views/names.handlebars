@@ -1,8 +1,10 @@
-<table class="table">
+<table class="table" style="border: 2px solid black;">
   <thead class="thead-dark">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
+      <th scope="col" style="width: 20%;"></th>
+      <th scope="col" style="width: 20%;"></th>
     </tr>
   </thead>
   <tbody>
@@ -10,6 +12,12 @@
     <tr>
       <th scope="row">{{this.ID}}</th>
       <td>{{this.Name}}</td>
+      <td><a href="/about/{{this.ID}}"><button class="btn btn-dark">UPDATE</button></a></td>
+      <td>
+        <form action="/del/{{this.ID}}" method="post">
+            <button class="btn btn-danger">DELETE</button>
+        </form>
+      </td>
     </tr>
     {{/each}}
   </tbody>

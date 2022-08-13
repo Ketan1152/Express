@@ -24,7 +24,11 @@ function showrcd() {
 }
 
 function delrcd(ID){
-    con.query(`DELETE FROM ketantable WHERE 'ID'='${ID}'`)
+    con.query(`DELETE FROM ketantable WHERE ID= ${ID}`)
+}
+
+function updrcd(prevname ,name){
+    con.query(`UPDATE ketantable SET Name = '${name}' WHERE Name = '${prevname}'`)
 }
 
 const getrcds = (code) =>{
@@ -38,5 +42,6 @@ module.exports = {
     insrcd: insrcd,
     showrcd: showrcd,
     delrcd: delrcd,
+    updrcd: updrcd,
     getrcds: getrcds
 };
