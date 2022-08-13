@@ -18,7 +18,7 @@ con.connect(function (err) {
         return console.error('error: ' + err.message);
     }
     console.log("Connected!");
-    insrcd("Ketan Ram Chandani");
+    showrcd();
 });
 
 function insrcd(name) {
@@ -26,7 +26,11 @@ function insrcd(name) {
         if (err) {
             return console.error('error: ' + err.message);
         }
+        showrcd();
     });
+}
+
+function showrcd() {
     con.query('SELECT * FROM ketantable;', (err, result) => {
         if (result[0].ID != 1) {
             con.query('ALTER TABLE ketantable AUTO_INCREMENT = 1;')
