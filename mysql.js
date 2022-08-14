@@ -48,6 +48,12 @@ function swdbs(code){
     });
 }
 
+const getrcdsDB = (code,DBTB) =>{
+    con.query(`SELECT * FROM ${DBTB};`,(err,result)=>{
+        code(result);
+    });
+}
+
 module.exports = {
     con: con,
     insrcd: insrcd,
@@ -55,5 +61,6 @@ module.exports = {
     delrcd: delrcd,
     updrcd: updrcd,
     getrcds: getrcds,
-    swdbs: swdbs
+    swdbs: swdbs,
+    getrcdsDB: getrcdsDB
 };

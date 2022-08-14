@@ -1,16 +1,16 @@
 <table class="table" style="border: 2px solid black;">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Databases</th>
+      <th scope="col">Table</th>
     </tr>
   </thead>
   <tbody>
-    {{#each ls}}
-    <tr>
-      <td><a href="/databases/{{this.Database}}">{{this.Database}}</a></td>
-    </tr>
+    {{#each tables}}
+    {{#each this.value}}
+        <tr>
+          <td><a href="./{{ ../../dbname }}/{{ this }}/">{{ this }}</a></td>
+        </tr>
+    {{/each}}
     {{/each}}
   </tbody>
 </table>
-<script>
-</script>

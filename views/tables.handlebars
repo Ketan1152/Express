@@ -1,13 +1,17 @@
 <table class="table" style="border: 2px solid black;">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Table</th>
+        {{#each keys}}
+            <th scope="col">{{this}}</th>
+        {{/each}}
     </tr>
   </thead>
   <tbody>
-    {{#each tables}}
+    {{#each values}}
     <tr>
-      <td><a href="/databases/{{db}}/">{{ this.Tables_in_ketan }}</a></td>
+    {{#each this.value}}
+      <td scope="row">{{this}}</td>
+    {{/each}}
     </tr>
     {{/each}}
   </tbody>

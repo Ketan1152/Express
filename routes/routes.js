@@ -5,11 +5,11 @@ const {con, insrcd, showrcd, delrcd, getrcds, updrcd, swdbs} = require('../mysql
 const router = express.Router();
 
 router.get('/',(req,res)=>{
-    res.render("index",{current: "/"});
+    res.render("index");
 });
 router.post('/',(req,res)=>{
     insrcd(req.body.name);
-    res.render("index",{current: "/"});
+    res.render("index");
 });
 router.get('/about',(req,res)=>{
     getrcds((result)=>{
@@ -34,29 +34,6 @@ router.get('/about/:ID',(req,res)=>{
     })
 })
 
-router.get('/databases',(req,res)=>{
-    swdbs((dbs)=>{
-        res.render('database',{ls: dbs});
-    });
-})
-router.get('/databases/:db',(req,res)=>{
-    con.query(`USE ${req.params.db};`,(err,result)=>{
-        if (err){
-            res.render("404");
-            return console.error(err);
-        }
-        else{
-            con.query("SHOW TABLES;",(err,result)=>{
-                if (err){
-                    res.render("404");
-                    return console.error(err);
-                }
-                else{
-                    res.render('tables',{db: req.params.db, tables: result})
-                }
-            });
-        }
-    })
-})
+router.use('/databases', require(path.join(__dirname, 'dbs')));
 
 module.exports = router;
