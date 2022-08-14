@@ -32,6 +32,7 @@ function updrcd(prevname ,name){
 }
 
 const getrcds = (code) =>{
+    con.query('USE ketan;');
     con.query('SELECT * FROM ketantable;',(err,result)=>{
         code(result);
     });

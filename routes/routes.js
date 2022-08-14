@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require('path');
-const fs = require('fs');
-const {con, insrcd, showrcd, delrcd, getrcds, updrcd, swdbs} = require('../mysql');
+const {con, insrcd, delrcd, getrcds, updrcd} = require('../mysql');
 const router = express.Router();
 
 router.get('/',(req,res)=>{
@@ -13,6 +12,10 @@ router.post('/',(req,res)=>{
 });
 router.get('/about',(req,res)=>{
     getrcds((result)=>{
+        result.forEach((elem) => {
+            elem.keys = Object.keys(elem);
+            console.log(elem.keys);
+        });
         res.render('names',{rcds: result});
     })
 });
