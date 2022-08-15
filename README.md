@@ -18,6 +18,8 @@ var con = mysql.createConnection({
 });
 ```
 
+**Don't forget to change the database name and table name from the queries. **
+
 
 ## Learning Git and Express
 
